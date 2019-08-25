@@ -40,8 +40,11 @@ export default class App extends Component {
     return(
       <div className="left-pane">
         <div className="custom-form">
-          <input className="number-input" type="number"
+          <input 
+          className="number-input" 
+          type="number"
           placeholder="Amount to be generated"
+          name="numberInput"
           onInput={this.handleInputChange}/>
 
           <button 
