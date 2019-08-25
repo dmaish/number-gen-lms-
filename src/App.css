@@ -82,3 +82,11 @@
   background-color: white;
   border: 1px solid #757575;
 }
+
+.numbers-container {
+  position: relative;
+  top: 20%;
+  height: 50%;
+  margin: 0 auto;
+  overflow: scroll;
+}

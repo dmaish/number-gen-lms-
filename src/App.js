@@ -59,6 +59,7 @@ export default class App extends Component {
     const phoneNumbers = this.state.phoneNumbers;
     return(
       <div className="right-pane">
+        <div className="numbers-container">
         {
           phoneNumbers.map(
             (phoneNumber) => {
@@ -66,7 +67,7 @@ export default class App extends Component {
             }
           )
         }
-        {/*  */}
+        </div>
       </div>
       )
   }
