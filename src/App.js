@@ -7,6 +7,9 @@ export default class App extends Component {
   state = {
     numbers: null,
     phoneNumbers: [],
+    sort: "ascending",
+    minimum: null,
+    maximum: null,
   }
   
   componentDidMount() {
@@ -14,6 +17,28 @@ export default class App extends Component {
 
   handleInputChange = e => {
     this.setState({ numbers: e.target.value });
+  }
+
+  handleSorting = e => {
+    e.preventDefault();
+    const { sort, phoneNumbers } = this.state;
+
+
+    if(sort === "ascending") {
+      this.setState({phoneNumbers: phoneNumbers.sort()});
+      this.setState({sort: "descending"})
+    } else if (sort === "descending") {
+      this.setState({phoneNumbers: phoneNumbers.reverse()});
+      this.setState({sort: "ascending"});
+    }
+  }
+
+  handleMinMaxGeneration = e => {
+    e.preventDefault();
+    const {phoneNumbers} = this.state;
+    const min = Math.min(...phoneNumbers);
+    const max = Math.max(...phoneNumbers);
+    this.setState({minimum: min, maximum: max});
   }
 
   handlePhoneNumberGeneration = (e) => {
@@ -52,6 +77,21 @@ export default class App extends Component {
           onClick={this.handlePhoneNumberGeneration}
           >Generate
           </button>
+
+          <button 
+          className="button-sort"
+          onClick={this.handleSorting}
+          >
+            sort {this.state.sort}
+          </button>
+
+          <button 
+          className="button"
+          onClick={this.handleMinMaxGeneration}
+          >
+            max/min 
+          </button>
+
         </div>
       </div>
       )
@@ -60,8 +100,10 @@ export default class App extends Component {
   renderRightPane() {
     console.log(this.state.phoneNumbers)
     const phoneNumbers = this.state.phoneNumbers;
+
     return(
       <div className="right-pane">
+        
         <div className="numbers-container">
         {
           phoneNumbers.map(
@@ -70,6 +112,14 @@ export default class App extends Component {
             }
           )
         }
+        </div>
+        <div className="min-max-container">
+          <div className="min">
+            min number: {this.state.minimum}
+          </div>
+          <div className="max">
+            max number: {this.state.maximum}
+          </div>
         </div>
       </div>
       )
