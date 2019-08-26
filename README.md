@@ -7,3 +7,10 @@ Here the deployed application on netlify: https://stoic-poitras-99d905.netlify.c
 - Git clone the application.
 - Run `npm install` to install dependencies
 - To run the application, run `npm start`
+
+### Technologies
+- ReactJS
+- html/css
+
+### author
+- Daniel Maina
