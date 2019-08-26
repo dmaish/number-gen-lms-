@@ -3,3 +3,7 @@
 
 Here the deployed application on netlify: https://stoic-poitras-99d905.netlify.com/
 
+# Getting started
+- Git clone the application.
+- Run `npm install` to install dependencies
+- To run the application, run `npm start`
